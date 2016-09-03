@@ -1,0 +1,12 @@
+.catalog:
+    name: Big Data Sandbox
+    version: 0.1.0
+    description: "Big Data Analytics Sandbox Environment"
+    maintainer: "Ralph Schlosser, ralph.schlosser@gmail.com"
+    questions:
+        - variable: "SPARK_WORKER_REPLICAS"
+          type: "string"
+          default: "1"
+          label: "Worker Replica Count"
+          description: "Number of Spark workers"
+          required: true

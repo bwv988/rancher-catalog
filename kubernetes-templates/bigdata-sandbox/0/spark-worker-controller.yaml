@@ -1,0 +1,25 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: spark-worker-controller
+  labels:
+    heritage: helm
+    provider: spark
+spec:
+  replicas: ${SPARK_WORKER_REPLICAS}
+  selector:
+    component: spark-worker
+  template:
+    metadata:
+      labels:
+        component: spark-worker
+    spec:
+      containers:
+        - name: spark-worker
+          image: analytics/spark-worker
+          command: [""]
+          ports:
+            - containerPort: 8081
+          resources:
+            requests:
+              cpu: 100m
