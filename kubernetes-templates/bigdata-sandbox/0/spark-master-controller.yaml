@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: spark-master
-          image: analytics/spark-master
+          image: analytics/ds-spark-master
           command: [""]
           ports:
             - containerPort: 7077
