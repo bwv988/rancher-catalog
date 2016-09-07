@@ -23,3 +23,10 @@ spec:
           resources:
             requests:
               cpu: 100m
+          volumeMounts:
+            - mountPath: /workdir
+              name: ~datascience-sandboxworkdir
+    volumes:
+      - hostPath:
+        path: ~/datascience-sandbox/workdir/
+        name: ~datascience-sandboxworkdir

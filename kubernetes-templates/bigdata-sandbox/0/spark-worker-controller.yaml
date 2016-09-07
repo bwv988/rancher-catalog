@@ -15,6 +15,9 @@ spec:
         component: spark-worker
     spec:
       containers:
+        - env:
+          - name: SPARK_MASTER_URL
+            value: spark://spark-master:7077
         - name: spark-worker
           image: bwv988/ds-spark-worker
           ports:
@@ -22,3 +25,10 @@ spec:
           resources:
             requests:
               cpu: 100m
+          volumeMounts:
+            - mountPath: /workdir
+              name: ~datascience-sandboxworkdir
+      volumes:
+        - hostPath:
+          path: ~/datascience-sandbox/workdir/
+          name: ~datascience-sandboxworkdir
