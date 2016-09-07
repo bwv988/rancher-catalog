@@ -27,6 +27,6 @@ spec:
             - mountPath: /workdir
               name: ~datascience-sandboxworkdir
     volumes:
-      - hostPath:
-        path: ~/datascience-sandbox/workdir/
-        name: ~datascience-sandboxworkdir
+      - name: ~datascience-sandboxworkdir
+        hostPath:
+          path: ~/datascience-sandbox/workdir/
