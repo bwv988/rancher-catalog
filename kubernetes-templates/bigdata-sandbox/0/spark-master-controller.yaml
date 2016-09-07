@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: spark-master
-          image: analytics/ds-spark-master         
+          image: bwv988/ds-spark-master
           ports:
             - containerPort: 7077
             - containerPort: 8080

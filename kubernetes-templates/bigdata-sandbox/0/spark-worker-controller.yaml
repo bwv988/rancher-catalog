@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: spark-worker
-          image: analytics/ds-spark-worker
+          image: bwv988/ds-spark-worker
           ports:
             - containerPort: 8081
           resources:
