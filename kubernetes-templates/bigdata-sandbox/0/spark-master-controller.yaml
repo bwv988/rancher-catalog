@@ -22,11 +22,4 @@ spec:
             - containerPort: 8080
           resources:
             requests:
-              cpu: 100m
-          volumeMounts:
-            - mountPath: /workdir
-              name: ~datascience-sandboxworkdir
-    volumes:
-      - name: ~datascience-sandboxworkdir
-        hostPath:
-          path: ~/datascience-sandbox/workdir/
+              cpu: 100m      

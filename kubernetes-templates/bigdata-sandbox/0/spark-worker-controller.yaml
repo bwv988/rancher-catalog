@@ -6,7 +6,7 @@ metadata:
     heritage: helm
     provider: spark
 spec:
-  replicas: ${SPARK_WORKER_REPLICAS}
+  replicas: 1
   selector:
     component: spark-worker
   template:
@@ -15,21 +15,13 @@ spec:
         component: spark-worker
     spec:
       containers:
-        - env:
-          - name: SPARK_MASTER_URL
-            value: spark://spark-master:7077
         - name: spark-worker
           image: bwv988/ds-spark-worker
+          env:
+            - name: SPARK_MASTER_URL
+              value: spark://spark-master:7077
           ports:
             - containerPort: 8081
           resources:
             requests:
               cpu: 100m
-          volumeMounts:
-            - mountPath: /workdir
-              name: ~datascience-sandboxworkdir
-      volumes:
-        - name: ~datascience-sandboxworkdir
-          hostPath:
-            path: ~/datascience-sandbox/workdir/
-        
