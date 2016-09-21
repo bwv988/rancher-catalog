@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spark-master
+  name: spark-worker-ui
   labels:
     provider: bwv988
 spec:
   ports:
-    - port: 7077
+    - port: 8081
   type: NodePort
   selector:
     component: spark-master
