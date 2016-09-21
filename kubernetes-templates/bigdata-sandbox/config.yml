@@ -1,5 +1,0 @@
-name: bigdata-sandbox
-version: 0.1.0
-description: |
-  Complete ecosystem to run Big Data Analytics tasks using Apache Spark, Hadoop, Hive. Has built-in interactive data science support.
-category: Big Data

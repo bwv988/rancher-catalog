@@ -1,0 +1,5 @@
+name: spark-as-a-service
+version: 0.1.0
+description: |
+  Launch Apache Spark standalone cluster.
+category: Big Data
