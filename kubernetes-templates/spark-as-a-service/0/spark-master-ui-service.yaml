@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-master-ui
+  labels:
+    provider: bwv988
+spec:
+  ports:
+    - port: 8080
+  type: NodePort
+  selector:
+    component: spark-master

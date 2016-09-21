@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-master
+  labels:
+    provider: bwv988
+spec:
+  ports:
+    - port: 7077
+  selector:
+    component: spark-master
