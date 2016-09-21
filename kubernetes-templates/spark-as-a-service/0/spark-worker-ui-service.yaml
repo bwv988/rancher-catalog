@@ -9,4 +9,4 @@ spec:
     - port: 8081
   type: NodePort
   selector:
-    component: spark-master
+    component: spark-worker
