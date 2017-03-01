@@ -1,0 +1,12 @@
+.catalog:
+    name: Data Science Playground Environment
+    version: 0.0.1
+    description: "Do Data Science with Zeppelin, Apache Spark, Hadoop, etc."
+    maintainer: "Ralph Schlosser, ralph.schlosser@gmail.com"
+    questions:
+        - variable: "SPARK_WORKER_REPLICAS"
+          type: "string"
+          default: "1"
+          label: "Spark worker count"
+          description: "Number of Spark workers"
+          required: true

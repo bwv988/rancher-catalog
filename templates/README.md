@@ -1,0 +1,1 @@
+# Rancher templates for Cattle

@@ -1,0 +1,5 @@
+name: datascience-playground
+version: 0.0.1
+description: |
+  Launch a data science playground environment.
+category: Big Data, Data Science
