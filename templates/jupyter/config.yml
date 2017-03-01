@@ -1,0 +1,5 @@
+name: Jupyter
+version: 0.0.1
+description: |
+  (Experimental) Launch Jupyter notebook
+category: Big Data, Data Science

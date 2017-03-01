@@ -1,0 +1,10 @@
+version: '2'
+services:
+  jupyter:
+    image: jupyter/all-spark-notebook
+    container_name: jupyter
+    command: start-notebook.sh --NotebookApp.token='' # Disable security. Not recommended for production.
+    ports:
+      - "8888:8888"
+    volumes:
+      - ~/ds-playground/workdir/:/workdir    

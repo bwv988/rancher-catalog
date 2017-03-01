@@ -1,0 +1,5 @@
+name: Apache Spark
+version: 0.0.1
+description: |
+  (Experimental) Launch an Apache Spark cluster
+category: Big Data, Data Science

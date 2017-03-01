@@ -1,0 +1,5 @@
+.catalog:
+    name: Jupyter Notebook
+    version: 0.0.1
+    description: "Launch Jupyter"
+    maintainer: "Ralph Schlosser, ralph.schlosser@gmail.com"    
