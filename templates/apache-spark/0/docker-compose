@@ -1,0 +1,19 @@
+version: '2'
+services:
+  spark-master:
+    image: bwv988/ds-spark-master
+    container_name: spark-master
+    environment:
+      - SPARK_CONF_spark_eventLog_enabled=true
+      - SPARK_CONF_spark_eventLog_dir=hdfs://namenode:8020/spark-logs
+      - SPARK_CONF_spark_history_fs_logDirectory=hdfs://namenode:8020/spark-logs
+    ports:
+      - "8080:8080"
+
+  spark-worker:
+    image: bwv988/ds-spark-worker
+    environment:
+      - SPARK_CONF_spark_eventLog_enabled=true
+      - SPARK_CONF_spark_eventLog_dir=hdfs://namenode:8020/spark-logs
+      - SPARK_CONF_spark_history_fs_logDirectory=hdfs://namenode:8020/spark-logs
+      - SPARK_MASTER_URL=spark://spark-master:7077
