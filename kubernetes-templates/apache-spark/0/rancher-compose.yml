@@ -1,6 +1,6 @@
 .catalog:
-    name: Apache Spark Standalone Cluster
-    version: 0.1.0
+    name: Apache Spark Cluster
+    version: 0.0.1
     description: "Create an Apache Spark cluster"
     maintainer: "Ralph Schlosser, ralph.schlosser@gmail.com"
     questions:
