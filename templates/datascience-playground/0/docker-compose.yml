@@ -20,8 +20,27 @@ services:
         - ~/ds-playground/workdir:/workdir
       environment:
         - CLUSTER_NAME=test
-      env_file:
-        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
+        - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+        - CORE_CONF_hadoop_http_staticuser_user=root
+        - CORE_CONF_hadoop_proxyuser_hue_hosts=*
+        - CORE_CONF_hadoop_proxyuser_hue_groups=*
+        - HDFS_CONF_dfs_webhdfs_enabled=true
+        - HDFS_CONF_dfs_permissions_enabled=false
+        - YARN_CONF_yarn_log___aggregation___enable=true
+        - YARN_CONF_yarn_resourcemanager_recovery_enabled=true
+        - YARN_CONF_yarn_resourcemanager_store_class=org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore
+        - YARN_CONF_yarn_resourcemanager_fs_state___store_uri=/rmstate
+        - YARN_CONF_yarn_nodemanager_remote___app___log___dir=/app-logs
+        - YARN_CONF_yarn_log_server_url=http://historyserver:8188/applicationhistory/logs/
+        - YARN_CONF_yarn_timeline___service_enabled=true
+        - YARN_CONF_yarn_timeline___service_generic___application___history_enabled=true
+        - YARN_CONF_yarn_resourcemanager_system___metrics___publisher_enabled=true
+        - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+        - YARN_CONF_yarn_timeline___service_hostname=historyserver
+        - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+        - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+        - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
+
       ports:
         - "50070:50070"
         - "8020:8020"
@@ -33,8 +52,27 @@ services:
         - namenode
       volumes:
         - ~/ds-playground/hadoop/datanode1:/hadoop/dfs/data
-      env_file:
-        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
+      environment:
+        - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+        - CORE_CONF_hadoop_http_staticuser_user=root
+        - CORE_CONF_hadoop_proxyuser_hue_hosts=*
+        - CORE_CONF_hadoop_proxyuser_hue_groups=*
+        - HDFS_CONF_dfs_webhdfs_enabled=true
+        - HDFS_CONF_dfs_permissions_enabled=false
+        - YARN_CONF_yarn_log___aggregation___enable=true
+        - YARN_CONF_yarn_resourcemanager_recovery_enabled=true
+        - YARN_CONF_yarn_resourcemanager_store_class=org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore
+        - YARN_CONF_yarn_resourcemanager_fs_state___store_uri=/rmstate
+        - YARN_CONF_yarn_nodemanager_remote___app___log___dir=/app-logs
+        - YARN_CONF_yarn_log_server_url=http://historyserver:8188/applicationhistory/logs/
+        - YARN_CONF_yarn_timeline___service_enabled=true
+        - YARN_CONF_yarn_timeline___service_generic___application___history_enabled=true
+        - YARN_CONF_yarn_resourcemanager_system___metrics___publisher_enabled=true
+        - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+        - YARN_CONF_yarn_timeline___service_hostname=historyserver
+        - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+        - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+        - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
 
     hive:
       image: bwv988/hadoop-hive
@@ -44,8 +82,27 @@ services:
         - namenode
         - datanode1
       container_name: hive
-      env_file:
-        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
+      environment:
+        - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+        - CORE_CONF_hadoop_http_staticuser_user=root
+        - CORE_CONF_hadoop_proxyuser_hue_hosts=*
+        - CORE_CONF_hadoop_proxyuser_hue_groups=*
+        - HDFS_CONF_dfs_webhdfs_enabled=true
+        - HDFS_CONF_dfs_permissions_enabled=false
+        - YARN_CONF_yarn_log___aggregation___enable=true
+        - YARN_CONF_yarn_resourcemanager_recovery_enabled=true
+        - YARN_CONF_yarn_resourcemanager_store_class=org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore
+        - YARN_CONF_yarn_resourcemanager_fs_state___store_uri=/rmstate
+        - YARN_CONF_yarn_nodemanager_remote___app___log___dir=/app-logs
+        - YARN_CONF_yarn_log_server_url=http://historyserver:8188/applicationhistory/logs/
+        - YARN_CONF_yarn_timeline___service_enabled=true
+        - YARN_CONF_yarn_timeline___service_generic___application___history_enabled=true
+        - YARN_CONF_yarn_resourcemanager_system___metrics___publisher_enabled=true
+        - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+        - YARN_CONF_yarn_timeline___service_hostname=historyserver
+        - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+        - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+        - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
       ports:
         - "10000:10000"
         - "10002:10002"
@@ -60,8 +117,26 @@ services:
         - SPARK_CONF_spark_eventLog_enabled=true
         - SPARK_CONF_spark_eventLog_dir=hdfs://namenode:8020/spark-logs
         - SPARK_CONF_spark_history_fs_logDirectory=hdfs://namenode:8020/spark-logs
-      env_file:
-        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
+        - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+        - CORE_CONF_hadoop_http_staticuser_user=root
+        - CORE_CONF_hadoop_proxyuser_hue_hosts=*
+        - CORE_CONF_hadoop_proxyuser_hue_groups=*
+        - HDFS_CONF_dfs_webhdfs_enabled=true
+        - HDFS_CONF_dfs_permissions_enabled=false
+        - YARN_CONF_yarn_log___aggregation___enable=true
+        - YARN_CONF_yarn_resourcemanager_recovery_enabled=true
+        - YARN_CONF_yarn_resourcemanager_store_class=org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore
+        - YARN_CONF_yarn_resourcemanager_fs_state___store_uri=/rmstate
+        - YARN_CONF_yarn_nodemanager_remote___app___log___dir=/app-logs
+        - YARN_CONF_yarn_log_server_url=http://historyserver:8188/applicationhistory/logs/
+        - YARN_CONF_yarn_timeline___service_enabled=true
+        - YARN_CONF_yarn_timeline___service_generic___application___history_enabled=true
+        - YARN_CONF_yarn_resourcemanager_system___metrics___publisher_enabled=true
+        - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+        - YARN_CONF_yarn_timeline___service_hostname=historyserver
+        - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+        - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+        - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
       ports:
         - "8080:8080"
       depends_on:
@@ -80,8 +155,26 @@ services:
         - SPARK_CONF_spark_eventLog_dir=hdfs://namenode:8020/spark-logs
         - SPARK_CONF_spark_history_fs_logDirectory=hdfs://namenode:8020/spark-logs
         - SPARK_MASTER_URL=spark://spark-master:7077
-      env_file:
-        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
+        - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+        - CORE_CONF_hadoop_http_staticuser_user=root
+        - CORE_CONF_hadoop_proxyuser_hue_hosts=*
+        - CORE_CONF_hadoop_proxyuser_hue_groups=*
+        - HDFS_CONF_dfs_webhdfs_enabled=true
+        - HDFS_CONF_dfs_permissions_enabled=false
+        - YARN_CONF_yarn_log___aggregation___enable=true
+        - YARN_CONF_yarn_resourcemanager_recovery_enabled=true
+        - YARN_CONF_yarn_resourcemanager_store_class=org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore
+        - YARN_CONF_yarn_resourcemanager_fs_state___store_uri=/rmstate
+        - YARN_CONF_yarn_nodemanager_remote___app___log___dir=/app-logs
+        - YARN_CONF_yarn_log_server_url=http://historyserver:8188/applicationhistory/logs/
+        - YARN_CONF_yarn_timeline___service_enabled=true
+        - YARN_CONF_yarn_timeline___service_generic___application___history_enabled=true
+        - YARN_CONF_yarn_resourcemanager_system___metrics___publisher_enabled=true
+        - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+        - YARN_CONF_yarn_timeline___service_hostname=historyserver
+        - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+        - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+        - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
       volumes_from:
         - spark-master
 
