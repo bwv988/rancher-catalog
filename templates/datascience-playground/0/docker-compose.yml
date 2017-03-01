@@ -21,7 +21,7 @@ services:
       environment:
         - CLUSTER_NAME=test
       env_file:
-        - hadoop.env
+        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
       ports:
         - "50070:50070"
         - "8020:8020"
@@ -34,7 +34,7 @@ services:
       volumes:
         - ~/ds-playground/hadoop/datanode1:/hadoop/dfs/data
       env_file:
-        - hadoop.env
+        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
 
     hive:
       image: bwv988/hadoop-hive
@@ -45,7 +45,7 @@ services:
         - datanode1
       container_name: hive
       env_file:
-        - hadoop.env
+        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
       ports:
         - "10000:10000"
         - "10002:10002"
@@ -61,7 +61,7 @@ services:
         - SPARK_CONF_spark_eventLog_dir=hdfs://namenode:8020/spark-logs
         - SPARK_CONF_spark_history_fs_logDirectory=hdfs://namenode:8020/spark-logs
       env_file:
-        - hadoop.env
+        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
       ports:
         - "8080:8080"
       depends_on:
@@ -81,7 +81,7 @@ services:
         - SPARK_CONF_spark_history_fs_logDirectory=hdfs://namenode:8020/spark-logs
         - SPARK_MASTER_URL=spark://spark-master:7077
       env_file:
-        - hadoop.env
+        - /var/lib/cattle/DATA/My Catalog/templates/datascience-playground/0/hadoop.env
       volumes_from:
         - spark-master
 
